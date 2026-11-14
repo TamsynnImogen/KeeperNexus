@@ -11,6 +11,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
+      - run: rustc -vV
       - run: cargo fmt --all -- --check
       - run: cargo build --workspace --locked --offline
       - run: cargo test --workspace --locked --offline
@@ -19,3 +20,22 @@ jobs:
         with:
           python-version: '3.12'
       - run: python tools/check_examples.py
+  portability:
+    name: Compile check (${{ matrix.target }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target:
+          - aarch64-linux-android
+          - armv7-linux-androideabi
+          - x86_64-linux-android
+          - i686-linux-android
+          - aarch64-unknown-linux-gnu
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - run: rustc -vV
+      # Checks the library and test sources; no NDK linking, APK or device run.
+      - run: cargo check --workspace --all-targets --locked --offline --target ${{ matrix.target }}

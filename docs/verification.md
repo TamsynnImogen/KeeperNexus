@@ -32,6 +32,15 @@ passed formatting, offline locked builds/tests, Clippy and example checks on
 `ubuntu-latest`, `windows-latest` and `macos-latest`. These are hosted headless
 checks with stable toolchains, not graphics/runtime acceptance or a Rust 1.75 test.
 
+Android/ARM portability update: local Rust 1.96.0
+`cargo check --workspace --all-targets --locked --offline --target TARGET` passed
+for `aarch64-linux-android`, `armv7-linux-androideabi`, `x86_64-linux-android`,
+`i686-linux-android`, and `aarch64-unknown-linux-gnu`. The workflow now checks
+these targets too and logs the desktop compiler host triple. These checks cover
+library/test-source compilation only: no cross-target test execution, native
+linking, APK, Android SDK/NDK integration, emulator or physical device was tested.
+See [platform support](platform-support.md) for the future device gate.
+
 No game executable exists yet. No GPU rendering, camera, digging/claiming,
 pathfinding, animation, mods, campaign conversion or in-game acceptance is claimed.
 The renderer choice, balance, format stability and production asset pipeline

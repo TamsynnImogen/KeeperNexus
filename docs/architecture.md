@@ -80,10 +80,23 @@ they are explicit diagnostics/configuration, not inherited magic limits.
 
 ## Cross-platform and failure boundaries
 
-Desktop Linux/Windows/macOS are intended targets; browser/mobile/consoles are
-not promised. Native save paths, asset casing, UTF-8 IDs, atomic writes and
-bounded loading need platform tests. GPU capability/quality tiers must be
-measured with real chunk edits, lights and animated creatures.
+Desktop Linux/Windows/macOS plus Android on ARM and x86 are intended platform
+goals. Keep ARM64 desktop portability visible too. The current library's
+cross-target compilation checks do not establish an Android app or device
+support; see [platform support](platform-support.md) for ABI coverage and gates.
+Browser, iOS and console releases are not planned by this change. Native save
+paths, asset casing, UTF-8 IDs, atomic writes and bounded loading need platform
+tests. GPU capability/quality tiers must be measured with real chunk edits,
+lights and animated creatures, including mobile memory and thermal constraints.
+
+The future application layer translates mouse/keyboard, touch and optional
+controller actions into the same simulation commands. Camera gestures, selection,
+dig/claim orders and HUD layouts need touch-specific design and readable scaling;
+never require pointer hover or a physical keyboard for core play. Mobile lifecycle
+handling, safe checkpoint saves and suspend/resume belong at the app boundary.
+Keep package loading behind a storage interface that can use app-private storage
+and user-selected imports rather than assume arbitrary desktop filesystem paths.
+These are architecture requirements, not implemented input/storage systems.
 
 Malformed content yields file/field/ID diagnostics before world startup. Unknown
 required features block loading. Optional visual omissions may use explicit

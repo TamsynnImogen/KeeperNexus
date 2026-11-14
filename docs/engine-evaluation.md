@@ -5,9 +5,9 @@ been added.** Re-evaluate supported releases and licences at the 2027 spike.
 
 | Approach | Useful starting point | Cost / uncertainty for Nexus |
 | --- | --- | --- |
-| Bevy | Rust ECS/plugins; PBR, glTF skinning and animation blend graph examples | Custom chunk meshing/invalidation, picking, pathfinding and tools still needed; migration work must be budgeted |
-| Fyrox | Rust engine with integrated editor, animation tooling and scene workflow | Verify procedural chunk update throughput and data-first mod workflow; avoid coupling authoritative state to editor scenes |
-| wgpu + selected libraries | Portable GPU API, maximum control over chunk rendering | Team must assemble asset loading, animation, PBR/shadows, tools, UI and resource lifetimes; largest maintenance scope |
+| Bevy | Rust ECS/plugins; PBR, glTF skinning and animation blend graph examples | Custom chunk meshing/invalidation, picking, pathfinding and tools still needed; migration work must be budgeted; Android ABI/renderer requirements need a device spike |
+| Fyrox | Rust engine with integrated editor, animation tooling and scene workflow | Verify procedural chunk update throughput, Android packaging/ABI support and data-first mod workflow; avoid coupling authoritative state to editor scenes |
+| wgpu + selected libraries | Portable GPU API, maximum control over chunk rendering | Team must assemble asset loading, animation, PBR/shadows, tools, UI, Android app integration and resource lifetimes; largest maintenance scope |
 
 Bevy is the preferred **first experiment**, because its data-oriented/plugin
 model fits a simulation with generated terrain and separate content. This is a
@@ -54,6 +54,19 @@ and recorded settings, not marketing feature counts:
    chunk update latency and scaling at several world/entity sizes. Set target
    budgets before interpreting results. Test Linux, Windows and macOS on actual
    hardware/backends; record driver and adapter details.
+7. Android ARM and x86: evaluate every dependency's supported ABIs, NDK/API and
+   graphics requirements before selecting the engine. Demonstrate packaging,
+   touch camera/selection/orders, lifecycle/surface recreation, private saves and
+   explicit content import. Start with ARM64 physical hardware and x86_64 Android
+   emulator coverage; assess ARMv7/x86 device viability explicitly. Profile mobile
+   GPU texture formats, RAM/VRAM pressure, sustained thermals, shadows and chunk
+   edits. Compilation alone does not satisfy this gate.
+
+Bevy's upstream [mobile examples](https://github.com/bevyengine/bevy/tree/main/examples/mobile)
+include Android projects. This is evidence that an Android integration path
+exists, not a guarantee of all four ABIs, a particular minimum device, or Nexus
+performance. Re-evaluate the pinned release during the spike. See
+[platform support](platform-support.md) for the independent core's current checks.
 
 Exit: a written decision with pinned versions, licences, selected quality tiers,
 measured limits, import receipts and manual camera/readability acceptance.

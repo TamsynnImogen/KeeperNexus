@@ -23,6 +23,10 @@ Full game development and production assets start in 2027. Phase 0 consists of
 design, examples, and minimal headless Rust scaffolding. Engine selection,
 scripts, gameplay rules, and draft formats are not frozen contracts.
 
+Android on ARM and x86 is a platform goal; preserve the four Android ABI compile
+checks and ARM64 desktop portability. See docs/platform-support.md. Compilation
+is separate from APK packaging and real device/graphics/input acceptance.
+
 Never automate input devices, focus windows, or run GUI-input automation.
 Preserve user changes. Use headless checks and document manual acceptance gaps.
 

@@ -27,6 +27,10 @@ new game.
   leave room for later vertical expansion.
 - Detailed animated 3D creatures, PBR rooms/equipment, lighting, shadows, and effects.
 - External content definitions, optional modules, factions, campaigns, and mods.
+- Android ARM64 and x86_64 are the first prototype priorities; ARMv7 and x86
+  remain candidate targets gated on engine, NDK, and budget evidence. ARM64
+  desktop portability is also a goal. These are not release promises. See
+  [platform support](docs/platform-support.md).
 - A separate future converter for selected DK1/KeeperFX maps and campaigns;
   direct runtime compatibility and full script compatibility are not goals.
 - Original or permission-cleared assets; third-party franchises are references,
@@ -51,6 +55,11 @@ python3 tools/check_examples.py
 content. The Python checker checks those fixtures; it is not a runtime loader or
 a general content validator. The CI workflow is prepared for Linux, Windows,
 and macOS; local checks alone do not prove those platforms or graphics drivers.
+Android ABI library compile checks target `aarch64-linux-android`,
+`armv7-linux-androideabi`, `x86_64-linux-android`, and `i686-linux-android`.
+Compile checks are not an Android APK build or proof of device, graphics,
+touch-input, suspend/resume, or storage acceptance; 32-bit graphics/device
+support is not established by compilation.
 
 ## Design documents
 
@@ -58,6 +67,7 @@ and macOS; local checks alone do not prove those platforms or graphics drivers.
 | --- | --- |
 | [Architecture](docs/architecture.md) | Responsibilities, dependency direction, future crate split |
 | [Engine evaluation](docs/engine-evaluation.md) | Bevy, Fyrox, and wgpu trade-offs and selection gate |
+| [Platform support](docs/platform-support.md) | Portability goals, target evidence, and open platform decisions |
 | [Voxel world](docs/voxel-world.md) | 3D model, playable surface, terrain catalogue |
 | [Native formats](docs/native-formats.md) | Draft content, map, campaign, and save boundaries |
 | [Gameplay systems](docs/gameplay-systems.md) | Modular gameplay responsibilities and factions |
