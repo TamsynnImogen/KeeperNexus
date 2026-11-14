@@ -1,0 +1,21 @@
+# These two definitions illustrate schema shape, not production balance.
+format_version = "0.1-draft"
+
+[[definitions]]
+id = "nexus:air"
+kind = "terrain"
+geometry = "air"
+diggable = false
+indestructible = true
+movement_tags = ["empty"]
+reinforcement_allowed = false
+
+[[definitions]]
+id = "nexus:dirt"
+kind = "terrain"
+geometry = "solid"
+diggable = true
+indestructible = false
+max_durability = 100 # illustrative finite value, not a balance decision
+movement_tags = ["blocks_walking"]
+reinforcement_allowed = true

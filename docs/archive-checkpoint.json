@@ -1,0 +1,12 @@
+{
+  "source": "/home/tamsynn/Documents/Games/KeeperFX-Enhanced-ui-modern",
+  "original_head": "ee3b2c1d066a58a07fd5aae1a1bfc8d41606f274",
+  "original_branch": "refs/heads/enhanced/ui-modern",
+  "archive_ref": "refs/heads/archive/keeper-nexus-port-20261114T095115Z",
+  "archive_commit": "ff88fac834ee63d5f5990512f42973491bd265c9",
+  "archive_tree": "d1f7d170ac5f03f5da084f30e6a9706d5c0893cd",
+  "created_utc": "20261114T095115Z",
+  "file_count": 2198,
+  "scope": "Tracked and nonignored untracked files; ignored outputs untouched in original worktree. Original staged index preserved separately. Empty external/vcpkg gitlink retained as pointer, upstream objects not bundled.",
+  "bundle_sha256": "76072f9083a12a31c63f3363246fc71242a8e60fca8b975ad4575358546e8566"
+}

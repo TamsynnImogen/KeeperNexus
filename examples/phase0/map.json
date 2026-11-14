@@ -1,0 +1,19 @@
+{
+  "format_version": "0.1-draft",
+  "id": "nexus:format_fixture",
+  "required_packages": [{"id": "nexus", "version": "0.1.0"}],
+  "coordinate_system": "y-up",
+  "chunk_edge": 16,
+  "bounds": {"min": [0, -16, 0], "max": [16, 16, 16]},
+  "boundary": "blocked",
+  "playable_surface_y": 0,
+  "palette": ["nexus:air", "nexus:dirt"],
+  "chunks": [
+    {"coord": [0, -1, 0], "runs": [[3840, 0], [1, 1], [255, 0]]}
+  ],
+  "surfaces": [{"pos": [0, -1, 0]}],
+  "players": [],
+  "entities": [],
+  "rooms": [],
+  "objectives": []
+}

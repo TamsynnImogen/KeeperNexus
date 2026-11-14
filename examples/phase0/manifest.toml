@@ -1,0 +1,13 @@
+# Synthetic authoring fixture only; no runtime package loader exists yet.
+format_version = "0.1-draft"
+id = "nexus"
+version = "0.1.0"
+engine_api = "0.1-draft"
+kind = "base"
+license = "GPL-2.0-or-later"
+authors = ["Keeper Nexus contributors"]
+content = ["terrain.toml"]
+dependencies = []
+load_after = []
+conflicts = []
+required_features = []
