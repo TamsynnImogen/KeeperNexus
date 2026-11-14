@@ -4,7 +4,7 @@
 
 The canonical new development worktree is
 `/home/tamsynn/Projects/KeeperNexus`. The initial reset was committed on local
-branch `nexus/standalone-phase0`; publication uses local branch `nexus/main`,
+branch `nexus/standalone-phase0`; publication uses local branch `nexus/standalone`,
 tracking GitHub `main` at https://github.com/TamsynnImogen/KeeperNexus.
 The worktree shares the existing local Git object store, but the public project
 starts with a fresh root commit containing only the standalone tree. The

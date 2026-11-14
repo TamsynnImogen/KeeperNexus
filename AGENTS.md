@@ -10,7 +10,7 @@ and never force-push. Publish only the intended branch using an explicit
 branch refspec (for example, `git push nexus HEAD:main` after verifying the
 checked-out commit); never use `--all`, `--mirror`, `--tags`, or publish local
 archival refs or legacy ancestry. This shared local worktree may use the
-`nexus/main` tracking branch; an ordinary clone may use `origin/main`.
+`nexus/standalone` branch tracking `nexus/main`; an ordinary clone may use `origin/main`.
 Publishing guidance does not imply unattended continuous syncing or authorize
 gameplay work.
 

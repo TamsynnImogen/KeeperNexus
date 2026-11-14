@@ -1,6 +1,6 @@
 # Phase 0 verification
 
-Local headless checks, 2026-11-14. This records the independent foundation only;
+Local and GitHub headless checks, 2026-11-14. This records the independent foundation only;
 the discontinued KeeperFX port was not rebuilt or launched.
 
 Toolchain: Rust/Cargo 1.96.0 on Linux x86_64. Declared minimum Rust is 1.75;
@@ -17,6 +17,7 @@ version 3 and there are no third-party Cargo dependencies.
 | Active-tree local Markdown links | Checked before completion |
 | Archive bundle verify and independent clone/fsck/blob comparison | Recorded in archive recovery receipts |
 | Original worktree source hashes, branch/HEAD, index and status | Compared with archive receipt before completion |
+| GitHub Linux, Windows and macOS matrix | Passed on standalone publication commit `f0a5aa09acb1b914ccbd61ab4f63be36a47b36ed`; see linked run below |
 
 A separate build using a fresh `/tmp/keeper-nexus-phase0-build` target directory
 also passed. Independent read-only review repeated the routine checks, verified
@@ -26,8 +27,10 @@ the preserved original index/branch/HEAD; it found no confirmed defect.
 Exact routine commands are in the root README. The Python checker verifies the
 bundled examples' selected invariants; complete schemas, malformed-input suites
 and runtime loaders are future work. Four spatial tests do not prove chunk
-storage or terrain behavior. Cross-platform CI is prepared but has not run on
-a remote or established Windows/macOS acceptance.
+storage or terrain behavior. The [first GitHub CI run](https://github.com/TamsynnImogen/KeeperNexus/actions/runs/43584454158)
+passed formatting, offline locked builds/tests, Clippy and example checks on
+`ubuntu-latest`, `windows-latest` and `macos-latest`. These are hosted headless
+checks with stable toolchains, not graphics/runtime acceptance or a Rust 1.75 test.
 
 No game executable exists yet. No GPU rendering, camera, digging/claiming,
 pathfinding, animation, mods, campaign conversion or in-game acceptance is claimed.
